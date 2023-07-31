@@ -1,0 +1,130 @@
+<nav class="navBar">
+  <ul>
+    <a href="/">
+      <div class="Logo">
+        <a href="/"><img src="/img/alma.png" alt="" /></a>
+        <a href="/"> <p>INCIENSE</p></a>
+      </div>
+    </a>
+
+    <div class="divsSing">
+
+      <div class="enlaces">
+        <ul>
+          <a href="/products"><li>PRODUCTOS</li></a>
+          <li>PROMOS</li>
+          <li>SEGUINOS</li>
+        </ul>
+      </div>
+
+      <div>
+        <a href="/cart">
+          <li>
+            <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>
+          </li>
+        </a>
+      </div>
+
+      <div class="logoutContainer">
+        <button id="loguotButton">Logout</button>
+      </div>
+
+    </div>
+
+  </ul>
+</nav>
+
+
+<div id="cartContainer" class="container" style="background-color: white;">
+  <div id="productContainer">
+
+    <p class="cart" data-cart-id="{{carts._id}}">Carrito :
+      {{carts._id}}</p>
+
+    <div class="row cartColums">
+      <div class="col-1 columProduct">
+        Producto
+      </div>
+      <div class="col-4"> </div>
+      <div class="col-1 columStock">
+        Stock
+      </div>
+      <div class="col-2 columPrice">
+        Precio
+      </div>
+      <div class="col-2 titleCantidad">
+        Cantidad
+      </div>
+      <div class="col-2 columSubtotal">
+        Subtotal
+      </div>
+    </div>
+
+    <div class="row cartDetails">
+      {{#each carts.products}}
+        <div id="cardCart" class="row">
+          <div class="col-1 productImg">
+            <img
+              src="{{product.thumbnail}}"
+              class="img-fluid rounded-start"
+              alt=""
+            />
+          </div>
+          <div class="col-4 productTitle">
+            <p>{{product.title}}</p>
+          </div>
+
+          <div class="col-1 stock">
+            <p data-stock="{{product.stock}}">stock:
+              {{product.stock}}</p>
+          </div>
+
+          <div class="col-2 price">
+            <p>$ {{product.price}}</p>
+          </div>
+
+          <div class="col-2 CantidadDiv">
+            <div class="row cantidad">
+              <div>
+                <button
+                  class="decrement btn btn-outline-secondary"
+                  data-product-id={{product._id}}
+                >-</button>
+                <span id="quantity">{{quantity}}</span>
+                <button
+                  class="increment btn btn-outline-secondary"
+                  data-product-id={{product._id}}
+                >+</button>
+              </div>
+              <button
+                class="remove btn btn-outline-secondary"
+                data-product-id={{product._id}}
+              >
+                Eliminar
+              </button>
+            </div>
+          </div>
+
+          <div class="subtotal col-1">
+            <p>$ {{subtotal}}</p>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+
+    <div class="row cardTotal">
+      <div class="col-10">
+        <p>Total:$ {{total}} </p>
+      </div>
+
+      <div class="col-2">
+        <a href="/purchase"><button type="button" class="btn btn-success">Finalizar compra</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/contador.js"></script>
+<script src="/js/logout.js"></script>

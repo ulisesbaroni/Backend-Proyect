@@ -1,0 +1,98 @@
+* {
+  font-family:"RobotoItalic";
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+@font-face{
+  font-family: 'Monserrat';
+  src: url('../fonts/Montserrat-Light.ttf');
+}
+
+@font-face{
+  font-family: 'RobotoItalic';
+  src: url('../fonts/RobotoCondensed-Italic.ttf');
+}
+* > button {
+  cursor: pointer;
+}
+
+.navBar {
+  width: 100vw;
+  height: 60px;
+  position: relative;
+  background-color: #50332e;
+  margin-bottom: 30px;
+  position: fixed;
+  z-index: 1000;
+}
+
+.navBar:before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+ /*  background: linear-gradient(0deg, rgba(135,55,41,1) 0%, rgba(80,51,46,1) 35%); */
+  transform: translate3d(0px, 5px, 0) scale(1);
+  filter: blur(20px);
+  opacity: var(0.7);
+  transition: opacity 0.3s;
+  border-radius: inherit;
+}
+
+.navBar::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: inherit;
+  border-radius: inherit;
+}
+
+.navBar ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin-left: 30px;
+  align-items: center;
+  list-style: none;
+  color: white;
+}
+.navBar ul li {
+  margin-right: 30px;
+  cursor: pointer;
+}
+.navBar ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+}
+
+.divsSing {
+  display: flex;
+  margin-right: 100px;
+  align-items: center;
+  position: absolute;
+  right: -80px;
+}
+.Logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.Logo a img {
+  height: 120%;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color:rgb(207, 207, 207);
+}

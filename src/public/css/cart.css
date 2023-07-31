@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  overflow-x: hidden;
+}
+.navBar p{
+  margin-bottom: 0;
+}
+
+.logoutContainer {
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoutContainer button {
+  background-color: transparent;
+  border: 2px solid #e5005a;
+  width: 100px;
+  height: 30px;
+  border-radius: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+#productContainer{
+  margin-top: 6em;
+  background-color:antiquewhite;
+  padding: 1em;
+  border-radius: 0.5em;
+}
+
+.cartColums{
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+
+.cartDetails{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin-left: 5px;
+ margin-right: 5px;
+}
+
+#cardCart{
+  background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.titleCantidad{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.productTitle{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
+.stock, .price, .subtotal{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  margin-left: 7px;
+}
+
+.CantidadDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+.cantidad div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cantidad button{
+  border-color: #e5005a;
+  border-radius: 15px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.cardTotal{
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  margin-left: 5px;
+}
+

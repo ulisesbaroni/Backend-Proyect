@@ -1,0 +1,150 @@
+<nav class="navBar">
+  <ul>
+    <a href="/">
+      <div class="Logo">
+        <a href="/"><img src="/img/alma.png" alt="" /></a>
+        <a href="/"> <p>INCIENSE</p></a>
+      </div>
+    </a>
+
+    <div class="divsSing">
+      <div class="enlaces">
+        <ul>
+          <a href="/products"><li>PRODUCTOS</li></a>
+          <li>PROMOS</li>
+          <li>SEGUINOS</li>
+        </ul>
+      </div>
+
+      <div>
+        <a href="/cart"><li><i
+              class="fa-solid fa-cart-shopping"
+              style="color: #ffffff;"
+            ></i></li></a>
+      </div>
+
+      {{#if user}}
+        <div class="saludo">
+          <h1>Hola {{user.name}} ! </h1>
+          <p>Rol: {{user.role}}</p>
+        </div>
+      {{/if}}
+
+      <div class="logoutContainer">
+        <button id="loguotButton">Logout</button>
+      </div>
+
+    </div>
+
+  </ul>
+</nav>
+<h1>Nuestros productos</h1>
+
+<div id="controles">
+  <form action="/products" method="GET">
+    <div id="labels">
+
+      <label for="limit"></label>
+
+      <select
+        name="limit"
+        id="limit"
+        class="form-select"
+        aria-label="Default select example"
+      >
+        <option value="5">Cantidad de productos</option>
+        <option value="1">1</option>
+        <option value="3">3</option>
+        <option value="5">5</option>
+      </select>
+
+      <label for="sort"></label>
+      <select
+        name="sort"
+        id="sort"
+        class="form-select"
+        aria-label="Default select example"
+      >
+        <option value="1">Ordenar por:</option>
+        <option value="1">Menor precio</option>
+        <option value="-1">Mayor precio</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-outline-secondary aplicar">Aplicar
+      cambios</button>
+  </form>
+</div>
+
+<div id="contenedorPricipal">
+  <div id="product-container">
+    {{#each products}}
+
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="{{thumbnail}}"
+              alt="{{title}}"
+              class="img-fluid rounded-start"
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{title}}</h5>
+              <p class="category">{{category}}</p>
+              <p class="card-text card-text-description">{{description}}</p>
+              <p class="card-text"><small
+                  class="text-muted"
+                >${{price}}</small></p>
+
+              {{!-- <button  type="button" class="btn btn-outline-secondary"     data-bs-toggle="modal" data-bs-target="#exampleModal">
+  + info
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{title}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <p class="card-text card-text-description">{{description}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+         <button id="{{_id}}" class="add-to-cart-button btn btn-outline-secondary">Agrecar al carrito</button>
+      </div>
+    </div>
+  </div>
+</div> --}}
+
+              <button
+                id="{{_id}}"
+                class="add-to-cart-button btn btn-outline-secondary"
+              >Agregar al carrito</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+  <div id="pageHandler">
+    {{#if hasPrevPage}}
+      <a href="/products?page={{prevPage}}"><button> - </button></a>
+    {{/if}}
+
+    <p>{{page}}</p>
+
+    {{#if hasNextPage}}
+      <a href="/products?page={{nextPage}}"><button> + </button></a>
+    {{/if}}
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/productHandler.js"></script>
+<script src="/js/logout.js"></script>

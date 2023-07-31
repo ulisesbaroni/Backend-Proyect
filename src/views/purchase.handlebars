@@ -1,0 +1,142 @@
+{{!-- <nav class="navBar">
+  <ul>
+    <div class="Logo">
+      <a href="/"><img src="/img/sushilogo.png" alt="" /> </a>
+      <a href="/">
+        <p>SUSHIAPP</p>
+      </a>
+    </div>
+
+    <div class="divsSing">
+      <div class="enlaces">
+        <ul>
+          <a href="/products">
+            <li>PRODUCTOS</li>
+          </a>
+          <li>PROMOS</li>
+          <a href="https://www.instagram.com/agupeiretti/?hl=es" target="_blank">
+            <li>SEGUINOS</li>
+          </a>
+        </ul>
+      </div>
+      <div>
+        <a href="/cart">
+          <li><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></li>
+        </a>
+      </div>
+      <div class="logoutContainer">
+        <button id="loguotButton">Logout</button>
+      </div>
+
+    </div>
+
+  </ul>
+</nav> --}}
+
+<nav class="navBar">
+  <ul>
+    <a href="/">
+      <div class="Logo">
+        <a href="/"><img src="/img/alma.png" alt="" /></a>
+        <a href="/">
+          <p>INCIENSE</p>
+        </a>
+      </div>
+    </a>
+
+    <div class="divsSing">
+
+      <div class="enlaces">
+        <ul>
+          <a href="/products">
+            <li>PRODUCTOS</li>
+          </a>
+          <li>PROMOS</li>
+          <li>SEGUINOS</li>
+        </ul>
+      </div>
+
+      <div>
+        <a href="/cart">
+          <li>
+            <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>
+          </li>
+        </a>
+      </div>
+
+      <div class="logoutContainer">
+        <button id="loguotButton">Logout</button>
+      </div>
+
+    </div>
+
+  </ul>
+</nav>
+
+
+<div id="cartContainer" class="container">
+
+  <div id="productContainer" class="container">
+    <p class="cart" data-cart-id="{{carts._id}}">Carrito : {{carts._id}}</p>
+    <div class="separate">
+      <div class="ticket">
+        <div class="parteInfo">
+          <p class="userName" data-user-id={{user.email}}>Nombre: {{user.name}} </p>
+          <p>Email: {{user.email}}</p>
+          <p>Direccion: calle xxx numero xxx</p>
+        </div>
+        <div class="parteProductos" data-products={{carts.products}}>
+          <div class="parteProductosContenido">
+            <p class="titlePedido">Pedido:</p>
+
+
+            <div class="row titleInfo">
+              <div class="col-3">
+                Producto
+              </div>
+              <div class="col-2">
+                Cantidad
+              </div>
+              <div class="col-2">
+                Subtotal
+              </div>
+            </div>
+
+            {{#each carts.products}}
+
+            <div class="row infoProducts">
+              <div class="row">
+                <div class="col-3 pTitle">
+                  <p>{{product.title}}</p>
+                </div>
+                <div class="col-2 pq">
+                  <p>{{quantity}} </p>
+                </div>
+                <div class="col-2 pq">
+                  <p>$ {{subtotal}}</p>
+                </div>
+              </div>
+            </div>
+
+            {{/each}}
+<div class="row finalizarCompra">
+            <div class="col-4 montoTotal">
+              <p data-total={{total}}>Total: $ {{total}}</p>
+            </div>
+
+            <div class="col-2">
+              <button id="finalizarCompraBtn" class="btn btn-outline-success">FINALIZAR COMPRA</button></a>
+            </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/js/logout.js"></script>
+  <script src="/js/ticket.js"></script>

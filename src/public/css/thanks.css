@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  overflow-x: hidden;
+}
+.navBar p{
+  margin-bottom: 0;
+}
+
+.logoutContainer {
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoutContainer button {
+  background-color: transparent;
+  border: 2px solid #e5005a;
+  width: 100px;
+  height: 30px;
+  border-radius: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+.thanks {
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.saludo {
+  font-size: 50px;
+  color: black;
+  width: 60%;
+  text-align: center;
+}
