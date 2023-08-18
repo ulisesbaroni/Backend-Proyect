@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -53,4 +53,47 @@ body {
 .imgConteiner img {
   width: 100%;
   object-fit: cover;
+}
+ */
+
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+}
+
+h1 {
+  color: #634133;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#product-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.col-md-4{
+margin-top: 4%;
+}
+
+.category{
+margin-bottom: 0.5em;
+}
+
+.card-text-description {
+font-size: 13px;
+
 }

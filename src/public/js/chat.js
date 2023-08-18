@@ -7,12 +7,12 @@ let user;
 const chatBox = document.getElementById("chatBox");
 
 Swal.fire({
-  title: "identificate",
-  text: "para acceder al chat coloca tu username",
+  title: "Bienvenida/o! :)",
+  text: "Para acceder al chat, por favor coloca tu nombre de usuario",
   icon: "question",
   input: "text",
   inputValidator: (value) => {
-    return !value && "necesitas registrarte antes de ingresar";
+    return !value && "Necesitas registrarte antes de ingresar";
   },
   allowOutsideClick: false,
   allowEscapeKey: false,

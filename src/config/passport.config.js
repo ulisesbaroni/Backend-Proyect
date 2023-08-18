@@ -7,6 +7,7 @@ import { ExtractJwt, Strategy } from "passport-jwt";
 import CartsManager from "../dao/mongo/managers/cart.js";
 import config from "./config.js";
 import UserDTO from "../dtos/user/userDTO.js";
+import dotenv from 'dotenv'
 
 const userManager = new UserManager();
 const cartManager = new CartsManager();
@@ -88,8 +89,8 @@ const initializePassportStrategies = () => {
     "github",
     new GithubStrategy(
       {
-        clientID: "Iv1.4c2c3b263793da3f",
-        clientSecret: "59ea5802ff1ff72b38261bdb1c78a63e45d43f26",
+        clientID: process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
         callbackURL: "http://localhost:8080/api/sessions/githubcallback",
       },
       async (accesToken, refreshToken, profile, done) => {

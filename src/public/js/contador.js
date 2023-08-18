@@ -46,7 +46,7 @@ incrementButtons.forEach((button) => {
           toast: true,
           position: "top-end",
           showConfirmButton: false,
-          timer: 1000,
+          timer: 2000,
           title: `Cantidad modificada!`,
           icon: "success",
         });
@@ -97,7 +97,7 @@ decrementButtons.forEach((button) => {
             toast: true,
             position: "top-end",
             showConfirmButton: false,
-            timer: 1000,
+            timer: 2000,
             title: `Cantidad modificada!`,
             icon: "success",
           });
@@ -135,7 +135,7 @@ removeButtons.forEach((button) => {
           toast: true,
           position: "top-end",
           showConfirmButton: false,
-          timer: 1000,
+          timer: 2000,
           title: `Producto eliminado!`,
           icon: "success",
         });
