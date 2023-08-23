@@ -1,8 +1,19 @@
 import { createHash, generateToken, validatePassword } from "../utils.js";
 import { userService } from "../services/index.js";
+import restoreTokenDTO from "../dtos/user/restoreTokenDTO.js";
+import mailService from "../services/mailingService.js";
+import DTemplates from "../constants/DTemplates.js";
+import jwt, { verify } from "jsonwebtoken";
 
 const registerPost = async (req, res) => {
+  const mailingService = new mailService();
   try {
+    const result = await mailingService.sendMail(
+      req.user.email,
+      DTemplates.HOLA,
+      { user: req.user }
+    );
+    console.log(result);
     res.send({ status: "success", messages: "registered" });
   } catch (error) {
     console.log(error);
@@ -21,6 +32,10 @@ const loginPost = async (req, res) => {
     role: req.user.role,
     cart: req.user.cart,
   };
+  if (req.error) {
+    res.send({ status: "error", error: req.error });
+    req.logger.error(`logger login.Usuario no agregado: ${req.error}`);
+  }
   const accessToken = generateToken(user);
   res.cookie("authToken", accessToken, {
     maxAge: 1000 * 60 * 60 * 24,
@@ -48,6 +63,22 @@ const githubCallback = (req, res) => {
     httpOnly: true,
   });
   res.redirect("/");
+};
+
+const restoreRequest = async (req, res) => {
+  const { email } = req.body;
+  if (!email) return res.status(400).send({ status: "error" });
+
+  const user = await userService.getUsersByService({ email });
+  if (!user) return res.status(400).send({ status: "error" });
+
+  //creamos el restore toquen
+  const restoreToken = generateToken(restoreTokenDTO.getForm(user), 30);
+  const mailingService = new mailService();
+  const result = await mailingService.sendMail(user.email, DTemplates.RESTORE, {
+    restoreToken,
+  });
+  res.send({ status: "success" });
 };
 
 const restorePaswordPost = async (req, res) => {
@@ -79,6 +110,31 @@ const restorePaswordPost = async (req, res) => {
   return res.send({ status: "success", messages: "reestablecida" });
 };
 
+const restorePassword = async (req, res) => {
+  const { password, token } = req.body;
+  try {
+    const tokenUser = jwt.verify(token, "jwtSecret");
+    console.log(tokenUser);
+    const user = await userService.getUsersByService({
+      email: tokenUser.email,
+    });
+    console.log(user);
+    //verificar si la clave no es la misma
+    const isSamePassword = await validatePassword(password, user.password);
+    console.log(isSamePassword);
+    if (isSamePassword) return res.send({ status: 400 });
+    const newHassedPassword = await createHash(password);
+    console.log(newHassedPassword);
+    await userService.updateOneService(
+      { email: user.email },
+      { $set: { password: newHassedPassword } }
+    );
+    res.send({ status: "success" });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export default {
   registerPost,
   getRegisterFail,
@@ -86,4 +142,6 @@ export default {
   logOutPost,
   githubCallback,
   restorePaswordPost,
+  restoreRequest,
+  restorePassword,
 };

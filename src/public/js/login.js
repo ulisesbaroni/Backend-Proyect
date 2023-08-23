@@ -26,7 +26,9 @@ form.addEventListener("submit", async (event) => {
       icon: "success",
     });
     if (responseData.payload.role === "admin") {
-      window.location.replace("/admin");
+      window.location.replace("/manager");
+    } else if (responseData.payload.role === "premium") {
+      window.location.replace("/manager");
     } else {
       window.location.replace("/");
     }
@@ -36,7 +38,7 @@ form.addEventListener("submit", async (event) => {
       position: "top-end",
       showConfirmButton: false,
       timer: 2000,
-      title: `usuario o clave incorrectos`,
+      title: `Usuario o clave incorrectos`,
       icon: "error",
     });
   }

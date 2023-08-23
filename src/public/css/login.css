@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
+
 body {
   display: flex;
   flex-direction: column;
@@ -58,6 +59,7 @@ input {
   margin-top: 10px;
   
 }
+
 button {
   background-color: transparent;
   border: 2px solid #634133;
@@ -66,6 +68,11 @@ button {
   border-radius: 40px;
   color: #634133;
   margin-top: 20px;
+}
+
+.registerBtn{
+  width: 10em;
+  height: 30px;
 }
 
 .restorePass{
@@ -80,3 +87,4 @@ p {
   margin-top: 2em;
   margin-bottom: 5px;
 }
+

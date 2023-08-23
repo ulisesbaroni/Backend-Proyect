@@ -11,25 +11,7 @@ body {
   background-color: white;
   overflow-x: hidden;
 }
-.navBar p{
-  margin-bottom: 0;
-}
-.logoutContainer {
-  font-size: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.logoutContainer button {
-  background-color: transparent;
-  border: 2px solid #e5005a;
-  width: 100px;
-  height: 30px;
-  border-radius: 40px;
-  color: white;
-  cursor: pointer;
-}
+
 .banner {
   width: 100vw;
   height: calc(100% - 100px);

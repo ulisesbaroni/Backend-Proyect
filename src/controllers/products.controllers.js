@@ -41,18 +41,10 @@ const postProduct = async (req, res) => {
     status,
     category,
     stock,
+    owner,
   } = req.body;
 
-  if (
-    !title ||
-    !description ||
-    !thumbnail ||
-    !code ||
-    !price ||
-    !status ||
-    !stock ||
-    !category
-  ) {
+  if ( !title || !description || !thumbnail || !code || !price || !status || !stock || !category ) {
     ErrorService.createError({
       name: "Product Creator error",
       cause: productErrorIncompleteValues({ title, description, code }),
@@ -60,6 +52,7 @@ const postProduct = async (req, res) => {
       code: EErrors.INCOMPLETE_VALUES,
       status: 400,
     });
+    req.logger.error(`Product Creator error`);
     return res
       .status(400)
       .send({ status: "error", error: "Incomplete Values" });
@@ -74,8 +67,10 @@ const postProduct = async (req, res) => {
     stock,
     status,
     category,
+    owner: req.user.role == "admin" ? "admin" : req.user.email,
   };
 
+  console.log(product);
   const result = await productService.createProductService(product);
   const products = await productService.getProductsService();
   req.io.emit("updateProducts", products);
@@ -105,22 +100,36 @@ const deleteProduct = async (req, res) => {
   const { pid } = req.params;
 
   await productService.deleteProductService(pid);
+
   const products = await productService.getProductsService();
   req.io.emit("updateProducts", products);
 
-  res.sendStatus(410);
+  res.send({
+    status: "success",
+  });
 };
 
 const addProduct = async (req, res) => {
   try {
     const pId = req.body.productId;
     const cId = req.user.cart;
-    const result = await cartService.addProductToCartService(pId, cId);
-    res.send({
-      status: "success",
-      message: `llego el id del producto ${pId} `,
-      payload: result,
-    });
+    const comprador = req.user.email;
+    const products = await productService.getProductsService();
+    const selected = products.filter((prod) => prod._id == pId);
+    if (comprador == selected[0].owner) {
+      console.log();
+      res.send({
+        status: "error",
+        message: `no puedes agregar este producto `,
+      });
+    } else {
+      const result = await cartService.addProductToCartService(pId, cId);
+      res.send({
+        status: "success",
+        message: `llego el id del producto ${pId} `,
+        payload: result,
+      });
+    }
   } catch (error) {
     console.log(error);
   }

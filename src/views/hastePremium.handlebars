@@ -3,9 +3,7 @@
     <a href="/">
       <div class="Logo">
         <a href="/"><img src="/img/alma.png" alt="" /></a>
-        <a href="/">
-          <p>INCIENSE</p>
-        </a>
+        <a href="/"> <p>INCIENSE</p></a>
       </div>
     </a>
 
@@ -15,7 +13,7 @@
         <ul>
           <a href="/products"><li>PRODUCTOS</li></a>
           <a href="/manager"><li>MANAGER</li></a>
-          <a href="/premium"><li>HASTE PREMIUM</li></a>
+          {{!-- <a href="/premium"><li>HASTE PREMIUM</li></a> --}}
           <li>NOSOTROS</li>
         </ul>
       </div>
@@ -37,11 +35,18 @@
   </ul>
 </nav>
 
-<div class="thanks">
-    <p class="saludo">GRACIAS POR TU COMPRA!!</p>
-    <p class="saludo">Esperamos verte muy pronto de vuelta!</p>
+<div class="premiumContainer">
+
+  <h1>Haste premium</h1>
+  <div class="premiumDiv">
+
+      <button onclick="premiumHandler('premium')">Perfil Premium</button>
+
+      <button onclick="premiumHandler('usuario')">Perfil Usuario</button>
+
+  </div>
 </div>
 
-
-
 <script src="/js/logout.js"></script>
+<script src="/js/premiumHandler.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

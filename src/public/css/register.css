@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
+
 body {
   display: flex;
   flex-direction: column;
@@ -13,16 +14,19 @@ body {
   justify-content: center;
   overflow-x: hidden;
 }
+
 .registerContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 50px;
 }
+
 h1 {
   padding-top: 30px;
   margin-bottom: 30px;
 }
+
 .formDiv {
   width: 30vw;
   height: 60vh;
@@ -34,6 +38,7 @@ h1 {
   justify-content: center;
   align-items: center;
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -42,9 +47,11 @@ form {
   justify-content: center;
   align-items: center;
 }
+
 label {
   margin-bottom: 10px;
 }
+
 input {
   height: 30px;
   border-radius: 15px;
@@ -53,6 +60,7 @@ input {
   text-indent: 15px;
   text-align: center;
 }
+
 button {
   background-color: transparent;
   border: 2px solid#634133;
@@ -62,6 +70,7 @@ button {
   color:#634133;
   margin-top: 10px;
 }
+
 .registrado {
   display: flex;
   flex-direction: column;
@@ -69,7 +78,13 @@ button {
   align-items: center;
   margin-top: 15px;
 }
+
 a {
   text-decoration: none;
   color: #634133 !important;
+}
+
+.productForm {
+  display: flex;
+  flex-direction: column;
 }

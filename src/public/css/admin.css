@@ -2,72 +2,121 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-family: sans-serif;
 }
 body {
   width: 100vw;
-  height: 100vh;
+  height: 140vh;
   display: flex;
   background-color: white;
   overflow-x: hidden;
 }
-.navBarAdmin {
-  width: 200px;
-  height: 100vh;
-  background-color: #50332e;
-  margin-bottom: 30px;
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  z-index: 1000;
-}
 
-.navBarAdmin ul {
+.productManager {
   width: 100%;
-  height: 33%;
+  height: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  list-style: none;
-  color: white;
-  padding-left: 0;
-}
-
-.navBarAdmin ul li {
-  cursor: pointer;
-}
-
-.logoAdmin {
-  width: 100%;
-  height: 33%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  margin-bottom: 5em;
+
 }
-.logoAdmin img {
-  width: 150px;
-  margin-top: -80px;
+#productForm {
+  display: flex;
+ 
+}
+.creadorDeProductos {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: auto;
+  align-items: center;
+  margin-left: 10px;
+  border: 2px solid #e5005a;
+  border-radius: 20px;
+  box-shadow: 1px 3px 19px -3px #000000;
+  margin-top: 5em;
+  margin-bottom: 3em;
+  padding-bottom: 2em;
+
+}
+.sectionA{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+
+}
+
+.sectionB{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+.creadorDeProductos h2 {
+  color: black;
+  margin-top: 50px;
+}
+.visualizadorDeProductos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10px;
+  width: 70%;
+  height: auto;
+  border: 2px solid #e5005a;
+  border-radius: 20px;
+  box-shadow: 1px 3px 19px -3px #000000;
+  color:black;
+  /* overflow-y: scroll; */
+  padding-bottom: 2em;
+}
+.visualizadorDeProductos h2 {
+  color: black;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.cadaProducto {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.cadaProducto button {
+  margin: 0;
   padding: 0;
 }
-.logoutContainer {
-  width: 100%;
-  height: 33%;
+form {
   display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
-.logoutContainer button {
-  position: absolute;
-  bottom: 40px;
+label {
+  margin-bottom: 10px;
+  color: black;
+  align-items: center;
+}
+input {
+  height: 30px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  width: 200px;
+  text-indent: 15px;
+  text-align: center;
+  
+}
+button {
   background-color: transparent;
   border: 2px solid #e5005a;
   width: 100px;
   height: 30px;
   border-radius: 40px;
-  color: white;
-  cursor: pointer;
+  color: black;
 }

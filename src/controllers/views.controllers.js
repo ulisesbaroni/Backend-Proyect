@@ -1,5 +1,6 @@
+import jwt from "jsonwebtoken";
 import productModel from "../dao/mongo/models/products.js";
-import { cartService } from "../services/index.js";
+import { cartService, productService } from "../services/index.js";
 
 const getView = async (req, res) => {
   const { page = 1 } = req.query;
@@ -16,7 +17,7 @@ const getView = async (req, res) => {
     await productModel.paginate({}, options);
 
   const products = docs;
-  // console.log(req.user);
+  console.log(req.user);
   res.render("products", {
     user: req.user,
     products,
@@ -30,7 +31,7 @@ const getView = async (req, res) => {
 };
 
 const getViewHome = async (req, res) => {
-  res.render("home", { css: "home" });
+  res.render("home", { user: req.user, css: "home" });
 };
 
 const getViewRealTime = async (req, res) => {
@@ -79,12 +80,21 @@ const getLoginView = async (req, res) => {
   res.render("login", { css: "login" });
 };
 
-const getRestorePaswordView = async (req, res) => {
-  res.render("restorePassword", { css: "login" });
+const getAdminView = async (req, res) => {
+  res.render("admin", { user: req.user, css: "admin" });
 };
 
-const getAdminView = async (req, res) => {
-  res.render("admin", { css: "admin" });
+const getManagerView = async (req, res) => {
+  const products = await productService.getProductsService();
+  if (req.user.role == "admin") {
+    const myProducts = products;
+    res.render("manager", { myProducts, css: "admin" });
+  } else {
+    const myProducts = products.filter(
+      (product) => product.owner == req.user.email
+    );
+    res.render("manager", { myProducts, css: "admin" });
+  }
 };
 
 const getPurchaseView = async (req, res) => {
@@ -109,6 +119,29 @@ const getPurchaseView = async (req, res) => {
 const getThanksView = async (req, res) => {
   res.render("thanks", { css: "thanks" });
 };
+
+const getPremiumView = async (req, res) => {
+  const user = req.user;
+  res.render("hastePremium", { user, css: "hastePremium" });
+};
+
+const getRestoreRequestView = async (req, res) => {
+  res.render("restoreRequest", { css: "hastePremium" });
+};
+
+const getRestorePasswordView = async (req, res) => {
+  const { token } = req.query;
+  console.log(token);
+  try {
+    console.log("hola");
+    const validToken = jwt.verify(token, "jwtSecret");
+    console.log(validToken);
+  } catch (error) {
+    return res.render("invalidToken");
+  }
+  res.render("restorePassword", { css: "hastePremium" });
+};
+
 const get401View = async (req, res) => {
   res.render("401error", { css: "401error" });
 };
@@ -121,10 +154,13 @@ export default {
   getChatView,
   getRegisterView,
   getLoginView,
-  getRestorePaswordView,
   getViewHome,
   getAdminView,
   getPurchaseView,
   getThanksView,
+  getPremiumView,
   get401View,
+  getRestorePasswordView,
+  getManagerView,
+  getRestoreRequestView,
 };
