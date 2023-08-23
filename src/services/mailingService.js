@@ -3,21 +3,23 @@ import config from "../config.js";
 import DMails from "../constants/DMails.js";
 import { generateMailTemplate } from "../utils.js";
 
-const APP_PASSWORD = "joxhtdwchewqsdqj";
-const APP_EMAIL = "ulisesbaroni@gmail.com";
-
 export default class mailService {
   constructor() {
     this.mailer = nodemailer.createTransport({
       service: "gmail",
       port: 587,
       auth: {
-        
-        user: APP_EMAIL,
-        pass: APP_PASSWORD,
+        user: process.env.MAILER_USER,
+        pass: process.env.MAILER_PASSWORD
       },
+
+      tls: {
+        rejectUnauthorized: false
+      }
+      
     });
   }
+
   sendMail = async (emails, template, payload) => {
     const mailInfo = DMails[template];
     const html = await generateMailTemplate(template, payload);

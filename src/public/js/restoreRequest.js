@@ -16,7 +16,7 @@ form.addEventListener("submit", async (event) => {
   const responseData = await response.json();
   console.log(responseData);
   if (responseData.status === "success") {
-    text.innerHTML = "Se envió un correo de verificacion";
+    text.innerHTML = "Se envió un correo de verificación!";
   } else {
     text.innerHTML = json.error;
   }
