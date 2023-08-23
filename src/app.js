@@ -21,11 +21,29 @@ import errorHandler from "./middlewares/error.js";
 import attachLogger from "./middlewares/logger.js";
 import loggerRouter from "./routes/logger.router.js";
 import usersRouter from "./routes/users.mongo.router.js";
+import swaggerJSDoc from "swagger-jsdoc";
+import swaggerUiExpress from "swagger-ui-express";
 
 const app = express();
 
 const url = config.mongoUrl;
 const connection = mongoose.connect(url);
+
+
+const swaggerOptions = {
+  definition: {
+    openapi: "3.0.1",
+    info: {
+      title: "Doc de Alma inciensos",
+      description: "Documentacion para Api de Alma Inciensos",
+    },
+  },
+  apis: [`${__dirname}/docs/**/*.yaml`],
+};
+const specs = swaggerJSDoc(swaggerOptions);
+app.use("/docs", swaggerUiExpress.serve, swaggerUiExpress.setup(specs));
+
+
 
 app.use(attachLogger);
 

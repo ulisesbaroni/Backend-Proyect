@@ -15,24 +15,6 @@ body {
   margin-bottom: 0;
 }
 
-/* .logoutContainer {
-  font-size: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.logoutContainer button {
-  background-color: transparent;
-  border: 2px solid #e5005a;
-  width: 100px;
-  height: 30px;
-  border-radius: 40px;
-  color: white;
-  cursor: pointer;
-} */
-
 #cartContainer{
   margin-top: 5em;
   background-color: antiquewhite;
@@ -73,7 +55,6 @@ body {
 .revisar {
   width: 40%;
   height: 100%;
-  background-image: url("../img/fondosushi.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
