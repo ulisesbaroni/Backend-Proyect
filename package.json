@@ -28,9 +28,12 @@
   "name": "almainciensosapi",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": ">=14 <17"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "",
+    "start": "node src/app.js",
     "dev": "nodemon ./src/app.js"
   },
   "keywords": [],

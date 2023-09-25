@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Confirmación de compra</title>
+  </head>
+  <body>
+    <h1>Confirmación de compra</h1>
+    <h2>¡Hola {{userName}}!</h2>
+    <p>Gracias por tu compra en Alma insiensos. A continuación, encontrarás los
+      detalles de tu compra:</p>
+
+    <h2>Órden de compra N°: {{ticketId}}</h2>
+
+    <h3>Detalles de tu compra:</h3>
+    <ul>
+      {{#each products}}
+        <li>
+          <strong>{{this.product.title}}</strong><br />
+          Cantidad:{{this.quantity}}<br />
+          Subtotal: ${{this.subtotal}}
+        </li>
+      {{/each}}
+    </ul>
+
+    <p>Total: ${{montoTotal}}</p>
+
+    <p>Gracias por elegirnos. Esperamos que disfrutes mucho de tus productos.</p>
+    <p>¡Hasta la próxima!</p>
+  </body>
+</html>
