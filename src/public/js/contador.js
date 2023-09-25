@@ -46,11 +46,12 @@ incrementButtons.forEach((button) => {
           toast: true,
           position: "top-end",
           showConfirmButton: false,
-          timer: 2000,
           title: `Cantidad modificada!`,
           icon: "success",
         });
-        window.location.replace("/cart");
+        setTimeout(() => {
+          window.location.replace("/cart");
+        }, 2000);
       }
     } catch (error) {
       console.log("Error:", error);
@@ -97,11 +98,12 @@ decrementButtons.forEach((button) => {
             toast: true,
             position: "top-end",
             showConfirmButton: false,
-            timer: 2000,
             title: `Cantidad modificada!`,
             icon: "success",
           });
-          window.location.replace("/cart");
+          setTimeout(() => {
+            window.location.replace("/cart");
+          }, 2000);
         }
       } catch (error) {
         console.log("Error:", error);
@@ -135,11 +137,12 @@ removeButtons.forEach((button) => {
           toast: true,
           position: "top-end",
           showConfirmButton: false,
-          timer: 2000,
-          title: `Producto eliminado!`,
+          title: `Producto eliminado con éxito!`,
           icon: "success",
         });
-        window.location.replace("/cart");
+        setTimeout(() => {
+          window.location.replace("/cart");
+        }, 2000);
       }
     } catch (error) {
       console.log("Error:", error);

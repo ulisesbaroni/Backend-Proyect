@@ -6,7 +6,7 @@
 }
 body {
   width: 100vw;
-  height: 140vh;
+  height: auto;
   display: flex;
   background-color: white;
   overflow-x: hidden;

@@ -21,8 +21,8 @@ Array.from(addToCartButtons).forEach((button) => {
             toast: true,
             position: "top-end",
             showConfirmButton: false,
-            timer: 1000,
-            title: `Producto agregado!`,
+            timer: 2000,
+            title: `Producto agregado al carrito!`,
             icon: "success",
           });
         } else {
@@ -31,7 +31,7 @@ Array.from(addToCartButtons).forEach((button) => {
             position: "top-end",
             showConfirmButton: false,
             timer: 2000,
-            title: `no puedes agregar tus propios productos`,
+            title: `No puedes agregar tus propios productos!`,
             icon: "error",
           });
         }
