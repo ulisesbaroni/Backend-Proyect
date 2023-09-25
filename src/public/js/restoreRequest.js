@@ -18,6 +18,6 @@ form.addEventListener("submit", async (event) => {
   if (responseData.status === "success") {
     text.innerHTML = "Se envió un correo de verificación!";
   } else {
-    text.innerHTML = json.error;
+    text.innerHTML = "El email no se encuentra registrado!";
   }
 });

@@ -18,7 +18,7 @@ const premiumHandler = async (type) => {
             showConfirmButton: false,
             timer: 3000,
             title: `Cambiaste tu role! a ${JSON.stringify(data.type)}
-            Tu role cambiara la proxima vez que inicies session`,
+            Tu role cambiara la próxima vez que inicies sesión!`,
             icon: "success",
           });
         }

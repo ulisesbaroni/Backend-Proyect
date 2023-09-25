@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+.userManager {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    margin-left: 400px;
+    color: white;
+  }
+  
+  .creadorUsuarios {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    margin-left: 150px;
+    justify-content: center;
+  }
+  .creadorDeUsuarios h2 {
+    color: white;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    width: 300px;
+  }
+  
+  .cadaUsuario {
+    width: 1000px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .cadaUsuario button {
+    margin: 0;
+    padding: 0;
+  }
+  .cadaUsuario table {
+    width: 100%;
+    color: white;
+  }
+  .cadaUsuario table td {
+    margin-top: 20px;
+    text-align: center;
+  }
+  .cadaUsuario table tr {
+    height: 50px;
+  }
+  button {
+    background-color: transparent;
+    border: 2px solid #e7832b;
+    width: 100px;
+    height: 30px;
+    border-radius: 40px;
+    color: white;
+    margin-top: 20px;
+  }
+  .titulo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
